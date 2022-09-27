@@ -11,9 +11,10 @@ import {
   SongDetails,
   TopCharts,
 } from './pages';
+import { RootState } from './redux/store';
 
 const App = () => {
-  const { activeSong } = useSelector((state: any) => state.player);
+  const { activeSong } = useSelector((state: RootState) => state.player);
 
   return (
     <div className="relative flex">
