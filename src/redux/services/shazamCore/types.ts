@@ -1,4 +1,4 @@
-export interface RootObject {
+export interface ShazamCoreRootObject {
   artists: Artist[];
   highlightsurls: Highlightsurls;
   hub: Hub;

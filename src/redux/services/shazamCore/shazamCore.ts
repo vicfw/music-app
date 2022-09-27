@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { RootObject } from './types';
+import { ShazamCoreRootObject } from './types';
 
 export const shazamCoreApi = createApi({
   reducerPath: 'shazamCoreApi',
@@ -14,7 +14,7 @@ export const shazamCoreApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getTopCharts: builder.query<RootObject[], void>({
+    getTopCharts: builder.query<ShazamCoreRootObject[], void>({
       query: () => '/charts/world',
     }),
   }),

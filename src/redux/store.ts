@@ -9,8 +9,8 @@ export const store = configureStore({
     [shazamCoreApi.reducerPath]: shazamCoreApi.reducer,
     player: playerReducer,
   },
-  middleware: (getDefualtMiddleware) =>
-    getDefualtMiddleware().concat(shazamCoreApi.middleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(shazamCoreApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

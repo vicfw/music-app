@@ -1,5 +1,24 @@
+import { ShazamCoreRootObject } from '../redux/services/shazamCore/types';
 import { FC } from 'react';
-
-const PlayPause: FC<any> = () => <div>Loader</div>;
+import { FaPauseCircle, FaPlayCircle } from 'react-icons/fa';
+interface PlayPauseProps {
+  song: ShazamCoreRootObject;
+  handlePause: () => void;
+  handlePlay: () => void;
+  isPlaying: boolean;
+  activeSong: ShazamCoreRootObject;
+}
+const PlayPause: FC<PlayPauseProps> = ({
+  handlePause,
+  handlePlay,
+  song,
+  activeSong,
+  isPlaying,
+}) =>
+  isPlaying && activeSong.title === song.title ? (
+    <FaPauseCircle size={35} className="text-gray-300" onClick={handlePause} />
+  ) : (
+    <FaPlayCircle size={35} className="text-gray-300" onClick={handlePlay} />
+  );
 
 export default PlayPause;
