@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { ShazamCoreRootObject } from '../redux/services/shazamCore/types';
 
 import PlayPause from './PlayPause';
 

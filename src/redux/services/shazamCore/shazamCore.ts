@@ -24,9 +24,11 @@ export const shazamCoreApi = createApi({
     getSongsDetails: builder.query<SingleSongRootObject, { songid: string }>({
       query: ({ songid }) => `/tracks/details?track_id=${songid}`,
     }),
-    getSongRelated: builder.query<RelatedSongsRootObject, { songid: string }>({
-      query: ({ songid }) => `/tracks/related?track_id=${songid}`,
-    }),
+    getSongRelated: builder.query<RelatedSongsRootObject[], { songid: string }>(
+      {
+        query: ({ songid }) => `/tracks/related?track_id=${songid}`,
+      }
+    ),
   }),
 });
 
