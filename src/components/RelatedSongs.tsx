@@ -6,11 +6,11 @@ import {
 import SongBar from './SongBar';
 
 interface RelatedSongsProps {
-  data?: RelatedSongsRootObject[] | undefined;
+  data?: any;
   activeSong: ShazamCoreRootObject;
   isPlaying: boolean;
-  handlePauseClick: () => void;
-  handlePlayClick: (song: ShazamCoreRootObject, i: number) => void;
+  handlePauseClick?: () => void;
+  handlePlayClick?: (song: ShazamCoreRootObject, i: number) => void;
   artistId?: string;
 }
 
@@ -25,7 +25,7 @@ const RelatedSongs: FC<RelatedSongsProps> = ({
   <div className="flex flex-col">
     <h1 className="font-bold text-3xl text-white ">Related Songs</h1>
     <div className="mt-6 w-full flex flex-col">
-      {data?.map((song, i) => {
+      {data?.map((song: any, i: number) => {
         return (
           <SongBar
             key={`${song.key}-${artistId}`}

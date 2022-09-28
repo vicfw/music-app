@@ -3,6 +3,7 @@ import {
   SingleSongRootObject,
   ShazamCoreRootObject,
   RelatedSongsRootObject,
+  ArtistDetailsRootObject,
 } from './types';
 
 export const shazamCoreApi = createApi({
@@ -29,6 +30,9 @@ export const shazamCoreApi = createApi({
         query: ({ songid }) => `/tracks/related?track_id=${songid}`,
       }
     ),
+    getArtistDetails: builder.query<ArtistDetailsRootObject, string>({
+      query: (artistId) => `/artists/details?artist_id=${artistId}`,
+    }),
   }),
 });
 
@@ -36,4 +40,5 @@ export const {
   useGetTopChartsQuery,
   useGetSongsDetailsQuery,
   useGetSongRelatedQuery,
+  useGetArtistDetailsQuery,
 } = shazamCoreApi;
