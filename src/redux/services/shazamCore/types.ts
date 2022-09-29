@@ -409,3 +409,269 @@ export interface LatestRelease {
 export interface LatestReleaseAttributes {
   title: string;
 }
+
+export interface SongsByCountryRootObject {
+  artists?: Artist[];
+  highlightsurls: Highlightsurls;
+  hub: Hub;
+  images?: Images;
+  key: string;
+  layout: string;
+  properties: Highlightsurls;
+  share: Share;
+  subtitle: string;
+  title: string;
+  type: RootObjectType;
+  url: string;
+}
+
+export interface Artist {
+  adamid: string;
+  alias: string;
+  id: string;
+}
+
+export interface Highlightsurls {}
+
+export interface Action {
+  id?: string;
+  name: Name;
+  type: ActionType;
+  uri?: string;
+}
+
+export interface Option {
+  actions: Action[];
+  beacondata: Beacondata;
+  caption: Caption;
+  colouroverflowimage: boolean;
+  image: string;
+  listcaption: Listcaption;
+  overflowimage: string;
+  providername: Providername;
+  type: BeacondataType;
+}
+
+export interface Beacondata {
+  providername: Providername;
+  type: BeacondataType;
+}
+
+export interface Images {
+  background: string;
+  coverart: string;
+  coverarthq: string;
+  joecolor: string;
+}
+
+export interface SongsByGenreRootObject {
+  artists: Artist[];
+  highlightsurls: Highlightsurls;
+  hub: Hub;
+  images: Images;
+  key: string;
+  layout: string;
+  properties: Highlightsurls;
+  share: Share;
+  subtitle: string;
+  title: string;
+  type: RootObjectType;
+  url: string;
+}
+
+export interface Artist {
+  adamid: string;
+  alias: string;
+  id: string;
+}
+
+export interface Highlightsurls {}
+
+export interface Hub {
+  actions: Action[];
+  displayname: Displayname;
+  explicit: boolean;
+  image: string;
+  options: Option[];
+  type: HubType;
+}
+
+export interface Action {
+  id?: string;
+  name: Name;
+  type: ActionType;
+  uri?: string;
+}
+
+export interface Option {
+  actions: Action[];
+  beacondata: Beacondata;
+  caption: Caption;
+  colouroverflowimage: boolean;
+  image: string;
+  listcaption: Listcaption;
+  overflowimage: string;
+  providername: Providername;
+  type: BeacondataType;
+}
+
+export interface Beacondata {
+  providername: Providername;
+  type: BeacondataType;
+}
+
+export interface Images {
+  background: string;
+  coverart: string;
+  coverarthq: string;
+  joecolor: string;
+}
+
+export interface Share {
+  avatar: string;
+  href: string;
+  html: string;
+  image: string;
+  snapchat: string;
+  subject: string;
+  text: string;
+  twitter: string;
+}
+
+export interface GetSongsBySearchRootObject {
+  artists: Artists;
+  tracks: Tracks;
+}
+
+export interface Artists {
+  hits: ArtistsHit[];
+}
+
+export interface ArtistsHit {
+  artist: HitArtist;
+}
+
+export interface HitArtist {
+  adamid: string;
+  avatar?: string;
+  name: string;
+  verified: boolean;
+  weburl: string;
+}
+
+export interface Tracks {
+  hits: TracksHit[];
+}
+
+export interface TracksHit {
+  track: Track;
+}
+
+export interface Track {
+  artists: ArtistElement[];
+  hub: Hub;
+  images: TrackImages;
+  key: string;
+  layout: string;
+  share: Share;
+  subtitle: string;
+  title: string;
+  type: TrackType;
+  url: string;
+}
+
+export interface ArtistElement {
+  adamid: string;
+  id: string;
+}
+
+export interface Hub {
+  actions: Action[];
+  displayname: Displayname;
+  explicit: boolean;
+  image: string;
+  options: Option[];
+  providers: Provider[];
+  type: HubType;
+}
+
+export interface Action {
+  id?: string;
+  name: Name;
+  type: ActionType;
+  uri?: string;
+}
+
+export enum Name {
+  HubApplemusicAndroidstore = 'hub:applemusic:androidstore',
+  HubApplemusicConnect = 'hub:applemusic:connect',
+  HubDeezerSearchdeeplink = 'hub:deezer:searchdeeplink',
+  HubSpotifySearchdeeplink = 'hub:spotify:searchdeeplink',
+  HubYoutubemusicAndroiddeeplink = 'hub:youtubemusic:androiddeeplink',
+}
+
+export enum ActionType {
+  Applemusicconnect = 'applemusicconnect',
+  Intent = 'intent',
+}
+
+export interface Option {
+  actions: Action[];
+  beacondata: Beacondata;
+  colouroverflowimage: boolean;
+  image: string;
+  listcaption: Listcaption;
+  overflowimage: string;
+  providername: Providername;
+  type: BeacondataType;
+}
+
+export interface Beacondata {
+  providername: Providername;
+  type: BeacondataType;
+}
+
+export interface Provider {
+  actions: Action[];
+  caption: ProviderCaption;
+  images: ProviderImages;
+  type: ProviderType;
+}
+
+export enum ProviderCaption {
+  OpenInDeezer = 'Open in Deezer',
+  OpenInSpotify = 'Open in Spotify',
+  OpenInYouTubeMusic = 'Open in YouTube Music',
+}
+
+export interface ProviderImages {
+  default: string;
+  overflow: string;
+}
+
+export enum ProviderType {
+  Deezer = 'DEEZER',
+  Spotify = 'SPOTIFY',
+  Youtubemusic = 'YOUTUBEMUSIC',
+}
+
+export interface TrackImages {
+  background: string;
+  coverart: string;
+  coverarthq: string;
+  joecolor: string;
+}
+
+export interface Share {
+  href: string;
+  html: string;
+  image: string;
+  snapchat: string;
+  subject: string;
+  text: string;
+  twitter: string;
+}
+
+export enum TrackType {
+  Music = 'MUSIC',
+}

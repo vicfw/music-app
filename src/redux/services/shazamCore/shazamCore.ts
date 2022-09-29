@@ -4,6 +4,9 @@ import {
   ShazamCoreRootObject,
   RelatedSongsRootObject,
   ArtistDetailsRootObject,
+  SongsByCountryRootObject,
+  SongsByGenreRootObject,
+  GetSongsBySearchRootObject,
 } from './types';
 
 export const shazamCoreApi = createApi({
@@ -22,6 +25,9 @@ export const shazamCoreApi = createApi({
     getTopCharts: builder.query<ShazamCoreRootObject[], void>({
       query: () => '/charts/world',
     }),
+    getSongsByGenre: builder.query<SongsByGenreRootObject[], string>({
+      query: (genre) => `/charts/genre-world?genre_code=${genre}`,
+    }),
     getSongsDetails: builder.query<SingleSongRootObject, { songid: string }>({
       query: ({ songid }) => `/tracks/details?track_id=${songid}`,
     }),
@@ -33,6 +39,13 @@ export const shazamCoreApi = createApi({
     getArtistDetails: builder.query<ArtistDetailsRootObject, string>({
       query: (artistId) => `/artists/details?artist_id=${artistId}`,
     }),
+    getSongsByCountry: builder.query<SongsByCountryRootObject[], string>({
+      query: (countryCode) => `/charts/country?country_code=${countryCode}`,
+    }),
+    getSongsBySearch: builder.query<GetSongsBySearchRootObject, string>({
+      query: (searchTerm) =>
+        `/search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}`,
+    }),
   }),
 });
 
@@ -41,4 +54,7 @@ export const {
   useGetSongsDetailsQuery,
   useGetSongRelatedQuery,
   useGetArtistDetailsQuery,
+  useGetSongsByCountryQuery,
+  useGetSongsByGenreQuery,
+  useGetSongsBySearchQuery,
 } = shazamCoreApi;

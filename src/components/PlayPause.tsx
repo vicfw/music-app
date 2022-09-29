@@ -1,8 +1,12 @@
-import { ShazamCoreRootObject } from '../redux/services/shazamCore/types';
+import {
+  ShazamCoreRootObject,
+  SongsByCountryRootObject,
+  Track,
+} from '../redux/services/shazamCore/types';
 import { FC } from 'react';
 import { FaPauseCircle, FaPlayCircle } from 'react-icons/fa';
 interface PlayPauseProps {
-  song: ShazamCoreRootObject;
+  song: ShazamCoreRootObject | SongsByCountryRootObject | Track;
   handlePause: () => void;
   handlePlay: () => void;
   isPlaying: boolean;

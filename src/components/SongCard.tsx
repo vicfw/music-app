@@ -2,16 +2,25 @@ import { MdSingleBed } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { playPause, setActiveSong } from '../redux/features/playerSlice';
-import { ShazamCoreRootObject } from '../redux/services/shazamCore/types';
+import {
+  GetSongsBySearchRootObject,
+  ShazamCoreRootObject,
+  SongsByCountryRootObject,
+  Track,
+} from '../redux/services/shazamCore/types';
 import PlayPause from './PlayPause';
 
 interface SongCardProps {
   key: string;
-  song: ShazamCoreRootObject;
+  song: ShazamCoreRootObject | SongsByCountryRootObject | Track;
   i: number;
   isPlaying: boolean;
   activeSong: ShazamCoreRootObject;
-  data: ShazamCoreRootObject[];
+  data:
+    | ShazamCoreRootObject[]
+    | SongsByCountryRootObject[]
+    | GetSongsBySearchRootObject
+    | undefined;
 }
 const SongCard: React.FC<SongCardProps> = ({
   key,
@@ -49,7 +58,7 @@ const SongCard: React.FC<SongCardProps> = ({
           />
         </div>
         <img
-          src={song.images.coverart}
+          src={song?.images?.coverart}
           alt="song-img"
           className="h-full w-full"
         />
